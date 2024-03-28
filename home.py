@@ -11,6 +11,7 @@ def load_lottieurl(url: str):
 
 lottie_url_hello = "https://lottie.host/377a24ee-4e19-48c9-8a2f-fcada962c70a/oax9riei3m.json"
 lottie_hello = load_lottieurl(lottie_url_hello)
+st_lottie(lottie_hello,key="hello")
 
 
 st.page_link("home.py", label="หน้าแรก", icon="🏠")
