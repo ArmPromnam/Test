@@ -27,7 +27,7 @@ st.subheader("สถิติ")
 # หาปีที่มีคะแนนสูงสุดสำหรับแต่ละคอลัมน์
 max_years = {}
 for col in df.columns[2:]:
-  max_years[col] = df[col].argmax() + 2565
+  max_years[col] = df[col].argmax() + 2566
 
 # แสดงผลลัพธ์
 print('ปีที่มีคะแนนสูงสุด:')
