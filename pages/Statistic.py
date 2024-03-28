@@ -26,5 +26,5 @@ st.write(df.head(10))
 st.subheader("สถิติ")
 st.write('ผลรวม')
 cl5=st.columns(1)
-cl5.write(dt['petal.width'].sum())
+cl5.write(dt['petal.length'].sum())
 
