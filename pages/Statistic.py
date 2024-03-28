@@ -24,9 +24,6 @@ st.subheader("ดัชนีสมรรถนะสิ่งแวดล้อ
 st.write(df.head(10))
 
 st.subheader("สถิติ")
-# อ่านข้อมูลจากรูปภาพ
-df = pd.read_csv('TH.csv')
-
 # หาปีที่มีคะแนนสูงสุดสำหรับแต่ละคอลัมน์
 max_years = {}
 for col in df.columns[2:]:
