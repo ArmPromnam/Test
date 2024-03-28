@@ -4,21 +4,26 @@ from streamlit_lottie import st_lottie_spinner
 import requests
 import pandas as pd
 
-# กำหนด URL ของ Lottie animation
-lottie_url = "https://assets.lottiefiles.com/packages/lf20_jkgb4v7h.json"
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
 
-# โหลด Lottie animation
-lottie_animation = load_lottieurl(lottie_url)
+html_1 = """
+<div style="background-color:#32C021;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
+<center><h5>ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย</h5></center>
+</div>
+"""
+st.markdown(html_1, unsafe_allow_html=True)
+st.markdown("")
 
-# โหลดข้อมูล CSV
-df = pd.read_csv("./data/TH.csv")
 
-# แสดงหัวข้อ
-st.title("ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย")
+df=pd.read_csv("./data/TH.csv")
+st.subheader("ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย")
+st.write(df.head(10))
 
-# แสดง Lottie animation
-st_lottie(lottie_animation, key="lottie")
-
+st.subheader("สถิติ")
 # แสดงข้อมูล
 st.write(df.head(10))
 
