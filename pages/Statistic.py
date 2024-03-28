@@ -30,13 +30,9 @@ st.write(df.head(10))
 # หาปีที่มีคะแนนสูงสุดสำหรับแต่ละคอลัมน์
 max_years = {}
 for col in df.columns[2:]:
-    max_years[col] = []
-    for i in range(len(df)):
-        if df.loc[i, col] == 100:
-            max_years[col].append(df.loc[i, "ปี"] + 2565)
+    max_years[col] = df[col].argmax() + 2565
 
 # แสดงผลลัพธ์
 st.subheader("สถิติ")
-for col, years in max_years.items():
-    if years:
-        st.write(f"{col}: {years}")
+for col, year in max_years.items():
+    st.write(f"{col}: {year}")
