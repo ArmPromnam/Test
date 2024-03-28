@@ -4,32 +4,31 @@ from streamlit_lottie import st_lottie_spinner
 import requests
 import pandas as pd
 
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
+# กำหนด URL ของ Lottie animation
+lottie_url = "https://assets.lottiefiles.com/packages/lf20_jkgb4v7h.json"
 
-html_1 = """
-<div style="background-color:#32C021;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
-<center><h5>ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย</h5></center>
-</div>
-"""
-st.markdown(html_1, unsafe_allow_html=True)
-st.markdown("")
+# โหลด Lottie animation
+lottie_animation = load_lottieurl(lottie_url)
 
+# โหลดข้อมูล CSV
+df = pd.read_csv("./data/TH.csv")
 
-df=pd.read_csv("./data/TH.csv")
-st.subheader("ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย")
+# แสดงหัวข้อ
+st.title("ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย")
+
+# แสดง Lottie animation
+st_lottie(lottie_animation, key="lottie")
+
+# แสดงข้อมูล
 st.write(df.head(10))
 
-st.subheader("สถิติ")
+# แสดงสถิติ
 # หาปีที่มีคะแนนสูงสุดสำหรับแต่ละคอลัมน์
 max_years = {}
 for col in df.columns[2:]:
-  max_years[col] = df[col].argmax() + 2566
+    max_years[col] = df[col].argmax() + 2565
 
 # แสดงผลลัพธ์
-print('ปีที่มีคะแนนสูงสุด:')
+st.subheader("สถิติ")
 for col, year in max_years.items():
-  print(f'{col}: {year}')
+    st.write(f"{col}: {year}")
