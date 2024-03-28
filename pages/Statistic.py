@@ -33,7 +33,7 @@ for col in df.columns[2:]:
     max_years[col] = []
     for i in range(len(df)):
         if df.loc[i, col] == 100:
-            max_years[col].append(df.loc[i, "ปี"] + 2566)
+            max_years[col].append(df.loc[i, "ปี"] + 2565)
 
 # แสดงผลลัพธ์
 st.subheader("สถิติ")
