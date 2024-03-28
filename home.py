@@ -3,7 +3,6 @@ from streamlit_lottie import st_lottie
 from streamlit_lottie import st_lottie_spinner
 import requests
 import pandas as pd
-import matplotlib.pyplot as plt
 
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -25,17 +24,3 @@ df=pd.read_csv("./data/TH.csv")
 st.subheader("ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย")
 st.write(df.head(10))
 
-# เลือกคอลัมน์ที่ต้องการแสดง
-df_plot = df[['ปี', 'ค่าดัชนี', 'ค่าเฉลี่ย', 'ค่าสูงสุด']]
-
-# กำหนดจำนวนแถวและคอลัมน์ของกราฟ
-fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 6))
-
-# วาดกราฟ
-for i, ax in enumerate(axes.flatten()):
-    ax.plot(df_plot['ปี'], df_plot.iloc[:, i+1])
-    ax.set_title(df_plot.columns[i+1])
-
-# ปรับแต่งกราฟ
-plt.tight_layout()
-plt.show()
