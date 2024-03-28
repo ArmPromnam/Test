@@ -24,7 +24,15 @@ st.subheader("ดัชนีสมรรถนะสิ่งแวดล้อ
 st.write(df.head(10))
 
 st.subheader("สถิติ")
-st.write('ผลรวม')
-cl5=st.columns(1)
-cl5.write(dt['petal.length'].sum())
+# อ่านข้อมูลจากรูปภาพ
+df = pd.read_csv('TH.csv')
 
+# หาปีที่มีคะแนนสูงสุดสำหรับแต่ละคอลัมน์
+max_years = {}
+for col in df.columns[2:]:
+  max_years[col] = df[col].argmax() + 2565
+
+# แสดงผลลัพธ์
+print('ปีที่มีคะแนนสูงสุด:')
+for col, year in max_years.items():
+  print(f'{col}: {year}')
