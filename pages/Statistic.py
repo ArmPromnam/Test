@@ -27,7 +27,6 @@ st.subheader("สถิติ")
 # แสดงข้อมูล
 st.write(df.head(10))
 
-# แสดงสถิติ
 # หาปีที่มีคะแนนสูงสุดสำหรับแต่ละคอลัมน์
 max_years = {}
 for col in df.columns[2:]:
