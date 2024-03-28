@@ -23,3 +23,12 @@ st.page_link("http://www.google.com", label="Google", icon="🌎")
 df=pd.read_csv("./data/TH.csv")
 st.subheader("ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย")
 st.write(df.head(10))
+
+st.write("กราฟแท่ง")
+a=dt['sepal.length'].sum()
+b=dt['sepal.width'].sum()
+c=dt['petal.length'].sum()
+d=dt['petal.width'].sum()
+dx=[a,b,c,d]
+cx=pd.DataFrame(dx,index=["sepal.length", "sepal.width", "petal.length","petal.width"])
+st.bar_chart(cx)
