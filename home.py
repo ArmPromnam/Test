@@ -20,9 +20,6 @@ st.page_link("pages/Statistic.py", label="การทำนายข้อม�
 st.page_link("pages/Chart.py", label="การนำเสนอ", icon="2️⃣", disabled=False)
 st.page_link("http://www.google.com", label="Google", icon="🌎")
 
-df = pd.read_csv("./data/TH.csv")
+df=pd.read("./data/TH.csv")
 st.sunheader("ดัชนีสมรรถนะสิ่งแวดล้อมของประเทศไทย")
 st.write(df.head(10))
-
-St.write(dt.describe())
-st.write(dt)
